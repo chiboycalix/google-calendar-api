@@ -19,7 +19,8 @@ const oAuth2Client = new google.auth.OAuth2(
 
 const token = JSON.parse(fs.readFileSync('access_token.json'))
 
-const calendar = google.calendar({ version: "v3", auth: oAuth2Client, auth: api_key,
+const calendar = google.calendar({ version: "v3", auth: api_key, auth: oAuth2Client,
+// const calendar = google.calendar({ version: "v3", auth: oAuth2Client,
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -61,19 +62,22 @@ app.get("/refresh", (req, res) => {
 app.get("/add-event", async (req, res) => {
   try {
     const event = {
-      summary: 'Meeting with Omono',
-      location: 'Office',
-      description: 'This is a new Event',
+      summary: 'This should be a new meeting with my wife.',
+      location: 'House',
+      description: 'This is a new meeting with my wife.',
       start: {
-        dateTime: '2023-06-15T10:00:00',
+        // dateTime: '2023-06-16T10:00:00',
+        dateTime: '2023-06-16T12:00:00.000Z',
         timeZone: 'America/New_York',
       },
       end: {
-        dateTime: '2023-06-15T11:30:00',
+        // dateTime: '2023-06-16T11:30:00',
+        dateTime: '2023-06-16T13:00:00.000Z',
         timeZone: 'America/New_York',
       },
       attendees: [
         { email: 'usigbedeborah95@gmail.com' },
+        { email: 'igwechinonso94@gmail.com' },
       ],
       visibility: 'public'
     };
