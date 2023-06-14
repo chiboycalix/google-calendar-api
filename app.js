@@ -19,7 +19,7 @@ const oAuth2Client = new google.auth.OAuth2(
 
 const token = JSON.parse(fs.readFileSync('access_token.json'))
 
-const calendar = google.calendar({ version: "v3", auth: api_key, auth: oAuth2Client,
+const calendar = google.calendar({ version: "v3", auth: api_key,
 // const calendar = google.calendar({ version: "v3", auth: oAuth2Client,
   headers: {
     "Content-Type": "application/json",
